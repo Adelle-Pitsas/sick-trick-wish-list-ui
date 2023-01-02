@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import './App.css';
-import { fetchTricks } from '../../apiCalls'
+import { fetchTricks, postTrick } from '../../apiCalls'
 import Tricks from '../Tricks/Tricks'
 import Form from '../Form/Form';
 
@@ -20,7 +20,10 @@ class App extends Component {
   }
 
   addTrick = (trick) => {
-    this.setState({tricks: [...this.state.tricks, trick]})
+    postTrick(trick)
+    .then(data => {
+      this.setState({tricks: [...this.state.tricks, data]})
+    })
   }
 
   render() {
