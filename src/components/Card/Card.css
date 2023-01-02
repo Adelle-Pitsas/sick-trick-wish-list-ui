@@ -3,4 +3,11 @@
   width: 400px;
   margin: 10px;
   border-radius: 10px;
+  padding-bottom: 15px;
+}
+
+.trash {
+  background-color: rgb(252, 252, 252);
+  border-radius: 5px;
+  cursor: pointer;
 }
