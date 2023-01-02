@@ -49,7 +49,7 @@ describe('Sick Trick Wish List', () => {
         id: 44
       }
     })
-    cy.get('button').click(0)
+    cy.get('button').eq(0).click(0)
     cy.get('.tricks-container').within(() => {
       cy.get('.card').eq(3).should('contain', 'The Hooligan Regular')
       .and('contain', 'Pool')
