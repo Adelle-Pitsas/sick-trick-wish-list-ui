@@ -40,6 +40,15 @@ describe('Sick Trick Wish List', () => {
     cy.get('input[name=name]').type('The Hooligan')
     cy.get('select[name=obstacle]').select('Pool')
     cy.get('input[name=tutorial]').type('https://www.youtube.com/watch?v=9N9swrZU1HA')
+    cy.intercept('POST', 'http://localhost:3001/api/v1/tricks', {
+      body: {
+        stance: "Regular",
+        name: "The Hooligan",
+        obstacle: "Pool",
+        tutorial: "https://www.youtube.com/watch?v=9N9swrZU1HA",
+        id: 44
+      }
+    })
     cy.get('button').click(0)
     cy.get('.tricks-container').within(() => {
       cy.get('.card').eq(3).should('contain', 'The Hooligan Regular')
