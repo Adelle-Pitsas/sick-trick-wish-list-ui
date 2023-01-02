@@ -28,10 +28,7 @@ class App extends Component {
 
   removeTrick = (id) => {
     deleteTrick(id)
-    .then(() => fetchTricks())
-    .then(data => {
-      this.setState({tricks: data})
-    })
+    .then(data => this.setState({tricks: data}))
   }
 
   render() {
