@@ -56,5 +56,4 @@ describe('Sick Trick Wish List', () => {
       .and('contain', 'Link to Tutorial: https://www.youtube.com/watch?v=9N9swrZU1HA')
     })
   })
-
 })
