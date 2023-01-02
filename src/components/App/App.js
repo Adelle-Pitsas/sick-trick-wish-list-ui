@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import './App.css';
-import { fetchTricks, postTrick } from '../../apiCalls'
+import { fetchTricks, postTrick, deleteTrick } from '../../apiCalls'
 import Tricks from '../Tricks/Tricks'
 import Form from '../Form/Form';
 
@@ -26,12 +26,20 @@ class App extends Component {
     })
   }
 
+  removeTrick = (id) => {
+    deleteTrick(id)
+    .then(() => fetchTricks())
+    .then(data => {
+      this.setState({tricks: data})
+    })
+  }
+
   render() {
     return (
       <div className="App">
         <h1>Sick Trick Wish List</h1>
         <Form addTrick={this.addTrick}/>
-        <Tricks tricks={this.state.tricks}/>
+        <Tricks tricks={this.state.tricks} removeTrick={this.removeTrick}/>
       </div>
     );
   }
