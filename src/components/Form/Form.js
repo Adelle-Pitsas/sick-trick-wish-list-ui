@@ -55,7 +55,7 @@ class Form extends Component {
           <select 
            name="obstacle"
            onChange={event => this.handleChange(event)}
-           value={this.state.stance}
+           value={this.state.obstacle}
            >
             <option>Choose your Obstacle</option>
             <option>Flatground</option>
